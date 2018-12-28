@@ -9,6 +9,7 @@ import Data.NonEmpty (NonEmpty(..))
 import Data.List (List(..), concat)
 import Data.List.Types (NonEmptyList(..))
 import Data.Foldable (foldl)
+import Data.Traversable (traverse)
 import Data.String.CodeUnits (singleton)
 
 import Text.Parsing.StringParser (Parser)
@@ -49,12 +50,18 @@ parseRule = { name : _,  terms: _ }
       *> parseTerms
     )
 
+ruleParser :: Rule -> Parser (NonEmptyList (NonEmptyList String))
+ruleParser = _.terms >>> traverse termParser
+
 parseName :: Parser String
 parseName = Cp.regex "[A-Z][A-Za-z0-9]+"
 
 type Term = (NonEmptyList Point)
 parseTerm :: Parser Term
 parseTerm = Co.sepEndBy1 parsePoint Cp.whiteSpace
+
+termParser :: Term -> Parser (NonEmptyList String)
+termParser = traverse pointParser
 
 data Point = Tk Token | Rx Regx | Rf Ref | Lt Literal | Ep Epsilon
 derive instance genericPoint :: Generic Point _
