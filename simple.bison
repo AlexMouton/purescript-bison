@@ -1,0 +1,6 @@
+%%
+
+
+BufferRelatedType
+  :Int8Array
+  ;

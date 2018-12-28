@@ -1,0 +1,31 @@
+{
+  "name": "purescript-bison",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paf31/purescript-webidl.git"
+  },
+  "dependencies": {
+    "purescript-exceptions": "^4.0.0",
+    "purescript-foreign": "^5.0.0",
+    "purescript-generics-rep": "^6.0.0",
+    "purescript-maybe": "^4.0.0",
+    "purescript-string-parsers": "^5.0.0",
+    "purescript-variant": "^5.2.0"
+  },
+  "devDependencies": {
+    "purescript-console": "^4.2.0",
+    "purescript-aff": "^5.0.2",
+    "purescript-spec": "^3.0.0",
+    "purescript-node-fs": "^5.0.0"
+  }
+}
